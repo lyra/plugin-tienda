@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.5//DTD plugin 1.0//EN" "http://www.joomla.org/xml/dtd/1.5/plugin-install.dtd"> 
+<install version="1.5" type="plugin" group="tienda" method="upgrade">
+	<name>PayZen Payment</name>
+	<creationDate>February 11, 2013</creationDate>
+	<version>1.1</version>
+	<author>Lyra Network</author>
+	<authorEmail>support@payzen.eu</authorEmail>
+	<authorUrl>http://www.lyra-network.com/</authorUrl>
+	<copyright>Copyright Lyra Network.</copyright>
+	<license></license>
+	<description>This plugin enables you to setup your PayZen payment system</description>
+	
+	<files>
+		<filename plugin="payment_payzen">payment_payzen.php</filename>
+		<folder>payment_payzen</folder>  
+	</files>
+
+	<languages>
+		<language tag="fr-FR">languages/fr-FR.plg_tienda_payment_payzen.ini</language>
+		<language tag="en-GB">languages/en-GB.plg_tienda_payment_payzen.ini</language>
+	</languages>
+	
+	<media folder="images" destination="com_tienda/images">
+		<filename>PayZen.jpg</filename>
+	</media>
+	
+	<params addpath="/plugins/tienda/payment_payzen/elements" />
+	
+	<params addpath="/administrator/components/com_tienda/elements">
+		<param name="payzen_developed_by" type="payzenlabel" label="Developed by" default="&lt;a href=&quot;http://www.lyra-network.com/&quot; target=&quot;_blank&quot;&gt;Lyra network&lt;/a&gt;"/>
+		<param name="payzen_contact_email" type="payzenlabel" label="Contact us" default="&lt;a href=&quot;mailto:support@payzen.eu&quot;&gt;support@payzen.eu&lt;/a&gt;"/>
+		<param name="payzen_contrib_version" type="payzenlabel" label="Module version" default="1.1"/>
+		<param name="payzen_gateway_version" type="payzenlabel" label="Platform version" default="V2"/>
+		<param name="payzen_cms_version" type="payzenlabel" label="Tested with" default="Tienda 0.7.0"/>
+		<param name="payzen_doc_url" type="payzenurl" label="DOCUMENTATION LINK" alt="CLICK HERE TO VIEW THE MODULE CONFIGURATION DOCUMENTATION" default="plugins/tienda/payment_payzen/installation_doc/Integration_PayZen_Tienda_0.7.0_v1.1.pdf" editable="false" />
+		
+		<param type="spacer" />
+		
+		<param name="payzen_gateway_url" type="text" size="50" default="https://secure.payzen.eu/vads-payment/" label="Platform URL" description="Link to the payment platform"/>
+		<param name="payzen_site_id" type="text" size="10" default="12345678" label="Site ID" description="The identifier provided by your bank"/>
+		<param name="payzen_key_test" type="text" size="20" default="1111111111111111" label="Certificate in test mode" description="Certificate provided by your bank for test (Available in the back office)"/>
+		<param name="payzen_key_prod" type="text" size="20" default="2222222222222222" label="Certificate in production mode" description="Certificate provided by your bank (Available in the back office)"/>
+		<param name="payzen_ctx_mode" type="radio" default="TEST" label="Mode" description="The context mode of this module">
+		  <option value="TEST">TEST</option>
+		  <option value="PRODUCTION">PRODUCTION</option>
+		</param>
+	
+		<param type="spacer" />
+		
+		<param name="payzen_language" type="list" default="fr" label="Default language" description="Select the language to use on the payment page by default">
+		  <option value="fr">French (FR)</option>
+		  <option value="de">German (DE)</option>
+		  <option value="en">English (EN)</option>
+		  <option value="nl">Dutch (NL)</option>
+		  <option value="es">Spanish (ES)</option>
+		  <option value="zh">Chinese (ZH)</option>
+		  <option value="it">Italian (IT)</option>
+		  <option value="ja">Japanese (JA)</option>
+		  <option value="pt">Portuguese (PT)</option>
+		</param>
+		<param name="payzen_available_languages" type="multilist" multiple="multiple" default="" label="Available Languages" size= "8" description="Select none to use gateway config">
+		  <option value="fr">French (FR)</option>
+		  <option value="de">German (DE)</option>
+		  <option value="en">English (EN)</option>
+		  <option value="nl">Dutch (NL)</option>
+		  <option value="es">Spanish (ES)</option>
+		  <option value="zh">Chinese (ZH)</option>
+		  <option value="it">Italian (IT)</option>
+		  <option value="ja">Japanese (JA)</option>
+		  <option value="pt">Portuguese (PT)</option>
+		</param>
+		<param name="payzen_shop_name" type="payzenshopname" size="50" default="" label="Your shop name" description="Shop name to display on the payment page. Leave blank to use gateway config"/>
+		<param name="payzen_shop_url" type="payzenurl" size="50" default="" label="Your shop url" description="Shop url to display on the payment page. Leave blank to use gateway config" editable="true"/>
+		<param name="payzen_capture_delay" type="text" size="10" default="" label="Capture delay" description="The number of days before the restoration bank (adjustable in your back office)"/>
+		<param name="payzen_validation_mode" type="list" default="" label="Validation mode" description="If manual is selected, you will have to confirm payments manually in your back office">
+		  <option value="">By default</option>
+		  <option value="0">Automatic</option>
+		  <option value="1">Manual</option>
+		</param>
+		<param name="payzen_payment_cards" type="multilist" multiple="multiple" size="8" default="" label="Card Types" description="The card type(s) that can be used for the payment">
+	     <option value="CB">Carte Bleue</option>
+		  <option value="MASTERCARD">MasterCard</option>
+		  <option value="MAESTRO">Maestro</option>
+		  <option value="VISA">Visa</option>
+		  <option value="VISA_ELECTRON">Visa Electron</option>
+		  <option value="AMEX">American Express</option>
+		  <option value="E-CARTEBLEUE">E-Carte Bleue</option>
+		 </param>
+		 
+		 <param name="payzen_3ds_min" type="text" size="10" default="" label="MINIMUM AMOUNT ALLOWED TO ACTIVATE 3DS" description="Minimum amount allowed to activate 3DS "/>
+		<param type="spacer" />	
+	    
+	 	<param name="payzen_amount_min" type="text" size="10" default="" label="Minimum amount" description="Minimum amount allowed"/>
+	    <param name="payzen_amount_max" type="text" size="10" default="" label="Maximum amount" description="Maximum amount allowed"/>
+		
+		<param type="spacer" />	
+		
+		<param name="payzen_redirect_enabled" type="radio" default="0" label="Automatic forward" description="If enabled, the client is automatically forwarded to your site at the end of the payment process">
+		  <option value="0">NO</option>
+		  <option value="1">YES</option>
+		</param>
+		<param name="payzen_redirect_success_timeout" type="text" size="10" default="5" label="Success forward timeout" description="Time in seconds (0-300) before the client is automatically forwarded to your site when the payment was successful"/>
+		<param name="payzen_redirect_success_message" type="text" size="50" default="Votre paiement a bien été pris en compte, vous allez être redirigé dans quelques instants." label="Success forward message" description="Message posted on the payment platform before forwarding when the payment was successful" />
+		<param name="payzen_redirect_error_timeout" type="text" size="10" default="5" label="Failure forward timeout" description="Time in seconds (0-300) before the client is automatically forwarded to your site when the payment failed"/>
+		<param name="payzen_redirect_error_message" type="text" size="50" default="Une erreur est survenue, vous allez être redirigé dans quelques instants." label="Failure forward message" description="Message posted on the payment platform before forwarding when the payment failed"/>
+		<param name="payzen_return_mode" type="list" default="GET" label="Return mode" description="Method that will be used for transmitting the payment result from the payment gateway to your store">
+          <option value="GET">GET</option>
+          <option value="POST">POST</option>
+        </param>
+        <param name="payzen_return_get_params" type="text" size="50" default="" label="Additional GET parameters" description="Extra parameters sent on return in GET mode"/>
+        <param name="payzen_return_post_params" type="text" size="50" default="" label="Additional POST parameters" description="Extra parameters sent on return in POST mode"/>
+		<param name="payzen_url_success" type="payzenurl" size="50" default="index.php?paction=display_message&amp;option=com_tienda&amp;view=checkout&amp;task=confirmPayment&amp;orderpayment_type=payment_payzen" label="Success URL" description="URL on which the client is redirected on payment success" editable="true"/>
+		<param name="payzen_url_return" type="payzenurl" size="50" default="index.php?paction=display_message&amp;option=com_tienda&amp;view=checkout&amp;task=confirmPayment&amp;orderpayment_type=payment_payzen" label="Error URL" description="URL on which the client is redirected on payment failure" editable="true"/>
+		<param name="payzen_url_cancel" type="payzenurl" size="50" default="index.php?paction=cancel&amp;option=com_tienda&amp;view=checkout&amp;task=confirmPayment&amp;orderpayment_type=payment_payzen" label="Cancel URL" description="URL on which the client is redirected on payment cancellation" editable="true"/>
+		<param name="payzen_silent_url" type="payzenurl" label="Server URL to copy in your store back office" default="index.php?option=com_tienda&amp;view=checkout&amp;task=confirmPayment&amp;orderpayment_type=payment_payzen&amp;paction=process" editable="false"/>
+		<param type="spacer" />
+		
+		<param name="payzen_failed_status_id" type="tiendaorderstate" scope="com_tienda" default="10" label="Order Status on payment failure" description="Defining the status of orders paid when payment failed" />
+   		<param name="payzen_succeeded_status_id" type="tiendaorderstate" scope="com_tienda" default="17" label="Order Status on payment success" description="Defining the status of orders paid when payment was successful" />
+	</params>
+</install>
